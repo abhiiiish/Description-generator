@@ -2,7 +2,11 @@ import openai
 import streamlit as st
 
 # Set up OpenAI API key
-openai.api_key = OPENAI_API_KEY
+from dotenv.main import load_dotenv
+import os
+load_dotenv()
+openai.api_key = os.environ['OPENAI_KEY']
+
 # Define function to generate description using OpenAI GPT-3 model
 def generate_description(company_name, year, company_type, specialty, location, employees, revenue, mission_statement):
     """
